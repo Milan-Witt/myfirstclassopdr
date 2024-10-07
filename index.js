@@ -2,11 +2,17 @@ import Kruk from './kruk.js';
 
 const mijnKruk = new Kruk('Blauw', 50);
 
-console.log(mijnKruk.echoKleur());
-console.log(mijnKruk.echoZithoogte());
+function veranderKruk() {
+    const nieuweKleur = document.getElementById('kleur').value;
+    const nieuweZithoogte = document.getElementById('zithoogte').value;
 
-mijnKruk.verstelZithoogte(70);
-console.log(mijnKruk.echoZithoogte());
+    if (nieuweKleur) {
+        mijnKruk.veranderKleur(nieuweKleur);
+        document.getElementById('resultaatKleur').innerText = mijnKruk.echoKleur();
+    }
 
-mijnKruk.veranderKleur('Groen');
-console.log(mijnKruk.echoKleur());
+    if (nieuweZithoogte) {
+        mijnKruk.verstelZithoogte(parseInt(nieuweZithoogte));
+        document.getElementById('resultaatHoogte').innerText = mijnKruk.echoZithoogte();
+    }
+}
